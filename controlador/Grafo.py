@@ -66,7 +66,6 @@ class Grafo:
         for i in range(len(list)):
             print(f"Origen: {list[i].getOrigen()}. Destino: {list[i].getDestino()}. Peso: {list[i].getPeso()}")
 
-
     # identificar los pozos
     def pozos(self, vertices):
         self.numPozos = 0
