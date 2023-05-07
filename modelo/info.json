@@ -1,0 +1,82 @@
+{
+    "planetas": [
+        {
+            "nombre": "Alderaan"
+        },{
+            "nombre": "Tattoine"
+        },{
+            "nombre": "Jakku"
+        },{
+            "nombre": "Base Starkiller"
+        },{
+            "nombre": "Ajan Kloss"
+        },{
+            "nombre": "Naboo"
+        },{
+            "nombre": "Yavin 4"
+        },{
+            "nombre": "Endor"
+        },{
+            "nombre": "Geonosis"
+        }
+    ],
+    "caminos": [
+        {
+            "origen": "Alderaan",
+            "destino": "Tattoine",
+            "peso": 10
+        },{
+            "origen": "Tattoine",
+            "destino": "Jakku",
+            "peso": 55
+        },{
+            "origen": "Jakku",
+            "destino": "Ajan Kloos",
+            "peso": 60
+        },{
+            "origen": "Alderaan",
+            "destino": "Naboo",
+            "peso": 8
+        },{
+            "origen": "Naboo",
+            "destino": "Endor",
+            "peso": 33
+        },{
+            "origen": "Endor",
+            "destino": "Geonosis",
+            "peso": 44
+        },{
+            "origen": "Base Starkiller",
+            "destino": "Endor",
+            "peso": 18
+        },{
+            "origen": "Base Starkiller",
+            "destino": "Naboo",
+            "peso": 22
+        },{
+            "origen": "Tattoine",
+            "destino": "Base Starkiller",
+            "peso": 12
+        },{
+            "origen": "Base Starkiller",
+            "destino": "Yavin 4",
+            "peso": 32
+        },{
+            "origen": "Yavin 4",
+            "destino": "Tattoine",
+            "peso": 36
+        },{
+            "origen": "Yavin 4",
+            "destino": "Ajan Kloos",
+            "peso": 59
+        },{
+            "origen": "Ajan Kloos",
+            "destino": "Geonosis",
+            "peso": 61
+        },{
+            "origen": "Geonosis",
+            "destino": "Yavin 4",
+            "peso": 39
+        }
+    ]
+}
