@@ -65,3 +65,12 @@ class Grafo:
     def __showAristas(self, list):
         for i in range(len(list)):
             print(f"Origen: {list[i].getOrigen()}. Destino: {list[i].getDestino()}. Peso: {list[i].getPeso()}")
+
+
+    # identificar los pozos
+    def pozos(self, vertices):
+        self.numPozos = 0
+        for vertice in  vertices:
+            if len(vertice.getListaAdyacentes()) == 0:
+                self.numPozos += 1
+        return self.numPozos
