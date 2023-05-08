@@ -1,20 +1,22 @@
 import tkinter as tk
-from PIL import Image, ImageTk
+from PIL import ImageTk, Image
 
-# Crea una instancia de la ventana principal
-root = tk.Tk()
+# Crea la ventana principal
+ventana = tk.Tk()
 
-# Carga la imagen usando la biblioteca Pillow
-image = Image.open("C:/Users/Julian/OneDrive/Imágenes/Saved Pictures/1b90e7f292b949d90c7a7ab02544fb40.jpg") #coloca aqui la imagen que querias añadir
+# Carga la imagen, es extraño que no funcione la ruta relativa ./fondo.jpg
+img = Image.open("C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/vista/fondo.jpg") 
+img = img.resize((ventana.winfo_screenwidth(), ventana.winfo_screenheight()))
+img = ImageTk.PhotoImage(img)
 
-# Crea una instancia de la clase PhotoImage de la imagen cargada
-photo = ImageTk.PhotoImage(image)
+# Crea el canvas y agrega la imagen de fondo
+canvas = tk.Canvas(ventana, width=ventana.winfo_screenwidth(), height=ventana.winfo_screenheight())
+canvas.pack(fill="both", expand=True)
+canvas.create_image(0, 0, image=img, anchor="nw")
 
-# Crea un widget Label y establece la imagen como su contenido
-label = tk.Label(root, image=photo)
+# Agrega el resto de los widgets a la ventana
+# ...
 
-# Ajusta el tamaño del widget para que se ajuste a la imagen
-label.pack()
+# Inicia el bucle principal
+ventana.mainloop()
 
-# Ejecuta el bucle de eventos de la ventana
-root.mainloop()
