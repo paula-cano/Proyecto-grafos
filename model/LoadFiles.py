@@ -1,8 +1,8 @@
-from controlador.Grafo import Grafo
+from controller.Grafo import Grafo
 import json
 
 # Abrir el archivo en modo lectura
-with open('modelo/info.json', 'r') as archivo_json:
+with open('../assets/info.json', 'r') as archivo_json:
     # Leer el contenido del archivo
     contenido = archivo_json.read()
     # Cerrar el archivo
@@ -12,7 +12,6 @@ with open('modelo/info.json', 'r') as archivo_json:
 datos = json.loads(contenido)
 
 grafo = Grafo()
-
 
 def createPlanets(datos, i):
     if i == len(datos["planetas"]):

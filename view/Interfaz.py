@@ -5,7 +5,7 @@ from PIL import ImageTk, Image
 ventana = tk.Tk()
 
 # Carga la imagen, es extraño que no funcione la ruta relativa ./fondo.jpg
-img = Image.open("C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/vista/fondo.jpg") 
+img = Image.open("C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/fondo.jpg") 
 img = img.resize((ventana.winfo_screenwidth(), ventana.winfo_screenheight()))
 img = ImageTk.PhotoImage(img)
 

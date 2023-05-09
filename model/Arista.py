@@ -3,7 +3,7 @@ class Arista:
     def __init__(self, origen, destino, peso):
         self.__origen = origen #nodo o vertice origen
         self.__destino = destino #nodo o vertice destino
-        self.__peso = peso #peso o peso de la arista
+        self.__peso = peso #peso o longitud de la arista
         
     def getOrigen(self):
         return self.__origen
