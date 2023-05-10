@@ -136,3 +136,62 @@ class Grafo:
             if self.esFuente(vertice.getData()):
                 fuentes.append(vertice.getData())
         return fuentes
+
+    '''Grado de los vertices'''
+    def gradoVerticesSalida(self):
+        cont = 0
+        salida = []
+        for v in range(len(self.list_vertices)):
+            cont = len(self.list_vertices[v].getListAdy())
+            salida.append(cont)
+        return salida
+
+    def gradoVerticesEntrada(self):
+        entrada = []
+        for v in range(len(self.list_vertices)):
+            dato = self.list_vertices[v].getData()
+            cont = 0
+            for u in range(len(self.list_vertices)):
+                if u != v:  # No comparar con el mismo vértice
+                    if dato in self.list_vertices[u].getListAdy():
+                        cont += 1
+            entrada.append(cont)
+        return entrada
+
+
+    """ALGORITMO KRUSKAL"""
+    """Recorrido de Grafo"""
+
+    def quick_sort(self, array):
+        lenght = len(array)
+        if lenght <= 1:
+            return array
+        else:
+            pivot = array.pop()
+
+        items_greater = []
+        items_lower = []
+
+        for item in array:
+            if item.getPeso() > pivot.getPeso():
+                items_greater.append(item)
+            else:
+                items_lower.append(item)
+        return self.quick_sort(items_lower) + [pivot] + self.quick_sort(items_greater)
+
+    def kruskal(self):
+        copiaAristas = self.quick_sort(
+            self.ListaAristas
+        )  # Copia de la lista de aristas originales ordenada
+        aristasKruskal = []
+        listaConjuntos = []
+        # self.quick_sort(copiaAristas)#Ordenamiento de la copia de aristas
+        for menor in copiaAristas:
+            self.operacionesConjuntos(menor, listaConjuntos, aristasKruskal)
+        # Esta ordenada de menor a mayor
+        lista = []
+        # print("la lista de conjunto se redujo a : {0}".format(len(ListaConjuntos)))
+        for dato in aristasKruskal:
+            lista.append([dato.getOrigen(), dato.getDestino()])
+        print(lista)
+        return lista
