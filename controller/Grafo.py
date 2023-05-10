@@ -151,11 +151,13 @@ class Grafo:
         for v in range(len(self.list_vertices)):
             dato = self.list_vertices[v].getData()
             cont = 0
-            for a in self.list_vertices[v].getListAdy():
-                if dato == a:
-                    cont += 1
+            for u in range(len(self.list_vertices)):
+                if u != v:  # No comparar con el mismo vértice
+                    if dato in self.list_vertices[u].getListAdy():
+                        cont += 1
             entrada.append(cont)
         return entrada
+
 
     """ALGORITMO KRUSKAL"""
     """Recorrido de Grafo"""
