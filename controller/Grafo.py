@@ -25,9 +25,9 @@ class Grafo:
         if not self.verificarExistenciaArista(origen, destino, self.list_aristas):
             if self.verificarExistenciaVertice(origen, self.list_vertices) and self.verificarExistenciaVertice(destino, self.list_vertices):
                 self.list_aristas.append(Arista(origen, destino, peso))
-                # self.list_aristas.append(Arista(destino, origen, peso))
+                self.list_aristas.append(Arista(destino, origen, peso))
                 self.obtenerVertice(origen).getListAdy().append(destino)
-                # self.obtenerVertice(destino).getListAdy().append(origen)
+                self.obtenerVertice(destino).getListAdy().append(origen)
           
     def verificarExistenciaArista(self, origen, destino, lista):
         for i in range(len(lista)):
