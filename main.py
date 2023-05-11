@@ -9,6 +9,4 @@ grafo.showAristas()
 print(grafo.gradoVerticesEntrada())
 print(grafo.gradoVerticesSalida())
 
-grafo.verticesFuente()
-grafo.verticesPozo()
-grafo.kruskal()
+

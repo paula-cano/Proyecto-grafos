@@ -8,8 +8,9 @@ class Grafo:
     
     def createGrafo(self):
         datos = Files.load_data()
-        self.createPlanets(datos, 0)
-        self.createPaths(datos, 0)
+        if datos is not None:
+            self.createPlanets(datos, 0)
+            self.createPaths(datos, 0)
     
     def createPlanets(self, datos, i):
         if i == len(datos["planetas"]):
