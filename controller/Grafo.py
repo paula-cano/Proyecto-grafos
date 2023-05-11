@@ -1,13 +1,33 @@
 from model.Vertice import Vertice
 from model.Arista import Arista
 from collections import deque
+from model.LoadFiles import Files
+
 
 class Grafo:
     
+    def createGrafo(self):
+        datos = Files.load_data()
+        self.createPlanets(datos, 0)
+        self.createPaths(datos, 0)
+    
+    def createPlanets(self, datos, i):
+        if i == len(datos["planetas"]):
+            return
+        self.ingresarVertices(datos["planetas"][i]["nombre"])
+        self.createPlanets(datos, i + 1)
+    
+    def createPaths(self, datos, i):
+        if i == len(datos["caminos"]):
+            return
+        self.ingresarArista(datos["caminos"][i]["origen"], datos["caminos"][i]["destino"], datos["caminos"][i]["peso"])
+        self.createPaths(datos, i + 1)
+        
     '''DEFINE AL GRAFO CON UNA LISTA VACÍA DE VERTICES Y ARISTAS'''
     def __init__(self):
         self.list_vertices = []
         self.list_aristas = []
+        self.createGrafo()
         
     '''MÉTODOS PARA INGRESAR VERTICES AL GRAFO'''
     def ingresarVertices(self, data):
@@ -25,9 +45,9 @@ class Grafo:
         if not self.verificarExistenciaArista(origen, destino, self.list_aristas):
             if self.verificarExistenciaVertice(origen, self.list_vertices) and self.verificarExistenciaVertice(destino, self.list_vertices):
                 self.list_aristas.append(Arista(origen, destino, peso))
-                self.list_aristas.append(Arista(destino, origen, peso))
+                # self.list_aristas.append(Arista(destino, origen, peso))
                 self.obtenerVertice(origen).getListAdy().append(destino)
-                self.obtenerVertice(destino).getListAdy().append(origen)
+                # self.obtenerVertice(destino).getListAdy().append(origen)
           
     def verificarExistenciaArista(self, origen, destino, lista):
         for i in range(len(lista)):

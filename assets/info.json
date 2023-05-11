@@ -1,23 +1,68 @@
 {
     "planetas": [
         {
-            "nombre": "Alderaan"
+            "nombre": "Alderaan",
+            "ruta": "./jupiter.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         },{
-            "nombre": "Tattoine"
+            "nombre": "Tattoine",
+            "ruta": "./marte.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         },{
-            "nombre": "Jakku"
+            "nombre": "Jakku",
+            "ruta": "./mercurio.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         },{
-            "nombre": "Base Starkiller"
+            "nombre": "Base Starkiller",
+            "ruta": "./death-star.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         },{
-            "nombre": "Ajan Kloss"
+            "nombre": "Ajan Kloss",
+            "ruta": "./saturno.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         },{
-            "nombre": "Naboo"
+            "nombre": "Naboo",
+            "ruta": "./tierra.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         },{
-            "nombre": "Yavin 4"
+            "nombre": "Yavin 4",
+            "ruta": "./urano.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         },{
-            "nombre": "Endor"
+            "nombre": "Endor",
+            "ruta": "./venus.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         },{
-            "nombre": "Geonosis"
+            "nombre": "Geonosis",
+            "ruta": "./neptuno.png",
+            "coordenadas": {
+                "x": 12,
+                "y": 12
+            }
         }
     ],
     "caminos": [
