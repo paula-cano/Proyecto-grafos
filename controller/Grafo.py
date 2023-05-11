@@ -1,8 +1,24 @@
 from model.Vertice import Vertice
 from model.Arista import Arista
 from collections import deque
+from model.archivos import Archivos
+
 
 class Grafo:
+
+    def crearGrafo(self, nombreArchivo):
+        data = Archivos.cargar_grafo(nombreArchivo)
+        planetas = data["planetas"]
+        caminos = data["caminos"]
+
+        for planeta in planetas:
+            self.ingresarVertices(planeta)
+
+        for camino in caminos:
+            origen = camino["origen"]
+            destino = camino["destino"]
+            peso = camino["peso"]
+            self.ingresarArista(origen, destino, peso)
     
     '''DEFINE AL GRAFO CON UNA LISTA VACÍA DE VERTICES Y ARISTAS'''
     def __init__(self):
