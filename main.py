@@ -11,3 +11,4 @@ print(grafo.gradoVerticesSalida())
 
 grafo.verticesFuente()
 grafo.verticesPozo()
+grafo.kruskal()
