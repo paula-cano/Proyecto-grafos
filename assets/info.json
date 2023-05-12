@@ -56,13 +56,6 @@
                 "x": 810,
                 "y": 460
             }
-        },{
-            "nombre": "Geonosis",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/neptuno.png",
-            "coordenadas": {
-                "x": 540,
-                "y": 530
-            }
         }
     ],
     "caminos": [

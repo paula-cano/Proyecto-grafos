@@ -6,7 +6,7 @@ class Files:
     def load_data():
         try:
             # Abrir el archivo en modo lectura
-            with open('C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/info.json', 'r') as archivo_json:
+            with open('C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/info.json', 'r') as archivo_json:
                 contenido = archivo_json.read()
                 archivo_json.close()
 

@@ -22,7 +22,9 @@ canvas.create_image(0, 0, image=img, anchor="nw")
 grafo = Grafo()
 grafo.createGrafo()
 
+imagenes_planetas = []
 # Obtiene las coordenadas y rutas de los planetas
+
 datos = Files.load_data()
 planetas = datos["planetas"]
 for planeta in planetas:
@@ -34,7 +36,15 @@ for planeta in planetas:
     etiqueta = tk.Label(canvas, text=planeta["nombre"], font=("Arial", 16))
     etiqueta.place(x=coordenada_x, y=coordenada_y)
     imagen = ImageTk.PhotoImage(Image.open(ruta_imagen).resize((50, 50)))
-    canvas.create_image(coordenada_x - 25, coordenada_y + 20, image=imagen, anchor="nw")
+    imagenes_planetas.append(imagen)  # Agrega la imagen a la lista
 
+
+    # Agrega las imágenes al canvas
+    for i, planeta in enumerate(planetas):
+        coordenada_x = planeta["coordenadas"]["x"]
+        coordenada_y = planeta["coordenadas"]["y"]
+        if len(imagenes_planetas) >= i + 1:
+            imagen = imagenes_planetas[i]  # Obtiene la imagen correspondiente
+            canvas.create_image(coordenada_x - 25, coordenada_y + 20, image=imagen, anchor="nw")
 
 ventana.mainloop()
