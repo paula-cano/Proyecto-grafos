@@ -46,9 +46,9 @@ class Grafo:
         if not self.verificarExistenciaArista(origen, destino, self.list_aristas):
             if self.verificarExistenciaVertice(origen, self.list_vertices) and self.verificarExistenciaVertice(destino, self.list_vertices):
                 self.list_aristas.append(Arista(origen, destino, peso))
-                # self.list_aristas.append(Arista(destino, origen, peso))
+                self.list_aristas.append(Arista(destino, origen, peso))
                 self.obtenerVertice(origen).getListAdy().append(destino)
-                # self.obtenerVertice(destino).getListAdy().append(origen)
+                self.obtenerVertice(destino).getListAdy().append(origen)
           
     def verificarExistenciaArista(self, origen, destino, lista):
         for i in range(len(lista)):
@@ -202,13 +202,13 @@ class Grafo:
 
     def kruskal(self):
         copiaAristas = self.quick_sort(
-            self.ListaAristas
+            self.list_aristas
         )  # Copia de la lista de aristas originales ordenada
         aristasKruskal = []
         listaConjuntos = []
         # self.quick_sort(copiaAristas)#Ordenamiento de la copia de aristas
         for menor in copiaAristas:
-            self.operacionesConjuntos(menor, listaConjuntos, aristasKruskal)
+            self.operacionesConj(menor, listaConjuntos, aristasKruskal)
         # Esta ordenada de menor a mayor
         lista = []
         # print("la lista de conjunto se redujo a : {0}".format(len(ListaConjuntos)))
@@ -216,3 +216,113 @@ class Grafo:
             lista.append([dato.getOrigen(), dato.getDestino()])
         print(lista)
         return lista
+    
+    def operacionesConj(self, menor, listaConjuntos, aristasKruskal):
+        encontrados1 = -1
+        encontrados2 = -1
+
+        if not listaConjuntos:  # Si esta vacia la lista
+            listaConjuntos.append({menor.getOrigen(), menor.getDestino()})
+            aristasKruskal.append(menor)
+        else:
+            for i in range(len(listaConjuntos)):
+                if (menor.getOrigen() in listaConjuntos[i]) and (
+                        menor.getDestino() in listaConjuntos[i]
+                ):
+                    return False  ##Camino ciclico
+
+            for i in range(len(listaConjuntos)):
+                if menor.getOrigen() in listaConjuntos[i]:
+                    encontrados1 = i
+                if menor.getDestino() in listaConjuntos[i]:
+                    encontrados2 = i
+
+            if encontrados1 != -1 and encontrados2 != -1:
+                if (
+                        encontrados1 != encontrados2
+                ):  # Si pertenecen a dos conjuntos diferentes
+                    # debo unir los dos conjuntos
+                    # print(encontrados1," ",encontrados2)
+                    listaConjuntos[encontrados1].update(
+                        listaConjuntos[encontrados2]
+                    )  # Uno los dos conjuntos
+                    listaConjuntos[encontrados2].clear()  # Elimino el conjunto
+                    aristasKruskal.append(menor)
+
+            if (
+                    encontrados1 != -1 and encontrados2 == -1
+            ):  # Si el origen esta unido a un conjunto
+                # listaConjuntos[encontrados1].add(menor.getOrigen())
+                listaConjuntos[encontrados1].add(menor.getDestino())
+                aristasKruskal.append(menor)
+
+            if (
+                    encontrados1 == -1 and encontrados2 != -1
+            ):  # Si el destino esta unido a un conjunto
+                listaConjuntos[encontrados2].add(menor.getOrigen())
+                # listaConjuntos[encontrados2].add(menor.getDestino())
+                aristasKruskal.append(menor)
+
+            if encontrados1 == -1 and encontrados2 == -1:
+                listaConjuntos.append({menor.getOrigen(), menor.getDestino()})
+                aristasKruskal.append(menor)
+    
+    '''KRUSKAL'''
+    def Kruskal(self):
+        copy_aristas = self.list_aristas.copy()
+        aristas_kruskal = []
+        list_conjuntos = []
+        
+        self.ordenarAristas(copy_aristas)
+        for aristaMenor in copy_aristas:
+            self.operacionesConjuntos(aristaMenor, list_conjuntos, aristas_kruskal)
+            
+        for dato in aristas_kruskal:
+            print(f"Origen: {dato.getOrigen()}. Destino: {dato.getDestino()}. Peso: {dato.getPeso()}")
+    
+    def operacionesConjuntos(self, aristaMenor, list_conjuntos, aristas_kruskal):
+        found_one = -1
+        found_two = -1
+        
+        if not list_conjuntos:
+            list_conjuntos.append({aristaMenor.getOrigen(), aristaMenor.getDestino()})
+            aristas_kruskal.append(aristaMenor)
+        else:
+            for i in range(len(list_conjuntos)):
+                if (aristaMenor.getOrigen() in list_conjuntos[i]) and (aristaMenor.getDestino() in list_conjuntos[i]):
+                    return False
+                
+            for i in range(len(list_conjuntos)):
+                if aristaMenor.getOrigen() in list_conjuntos[i]:
+                    found_one = i
+                if aristaMenor.getDestino() in list_conjuntos[i]:
+                    found_two = i
+                    
+            if found_one != -1 and found_two != -1:
+                if found_one != found_two:
+                    list_conjuntos[found_one].update(list_conjuntos[found_two])
+                    list_conjuntos[found_two].clear()
+                    aristas_kruskal.append(aristaMenor)
+            
+            if found_one != -1 and found_two == -1:
+                list_conjuntos[found_one].add(aristaMenor.getOrigen())
+                list_conjuntos[found_one].add(aristaMenor.getDestino())
+                aristas_kruskal.append(aristaMenor)
+                
+            if found_one == -1 and found_two != -1:
+                list_conjuntos[found_two].add(aristaMenor.getOrigen())
+                list_conjuntos[found_two].add(aristaMenor.getDestino())
+                aristas_kruskal.append(aristaMenor)
+                
+            if found_one == -1 and found_two == -1:
+                list_conjuntos.append({aristaMenor.getOrigen(), aristaMenor.getDestino()})
+                aristas_kruskal.append(aristaMenor)
+                
+    
+    def ordenarAristas(self, aristas):
+        for i in range(len(aristas)):
+            for j in range(i, len(aristas)):
+                if aristas[i].getPeso() > aristas[j].getPeso():
+                    t = aristas[i]
+                    aristas[i] = aristas[j]
+                    aristas[j] = t

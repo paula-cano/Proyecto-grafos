@@ -2,59 +2,66 @@
     "planetas": [
         {
             "nombre": "Alderaan",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/jupiter.png",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/jupiter.png",
             "coordenadas": {
                 "x": 870,
                 "y": 140
             }
         },{
             "nombre": "Tattoine",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/marte.png",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/marte.png",
             "coordenadas": {
                 "x": 540,
                 "y": 226
             }
         },{
             "nombre": "Jakku",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/mercurio.png",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/mercurio.png",
             "coordenadas": {
                 "x": 300,
                 "y": 226
             }
         },{
             "nombre": "Base Starkiller",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/death-star.png",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/death-star.png",
             "coordenadas": {
                 "x": 300,
                 "y": 376
             }
         },{
             "nombre": "Ajan Kloss",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/saturno.png",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/saturno.png",
             "coordenadas": {
                 "x": 540,
                 "y": 376
             }
         },{
             "nombre": "Naboo",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/tierra.png",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/tierra.png",
             "coordenadas": {
                 "x": 810,
                 "y": 296
             }
         },{
             "nombre": "Yavin 4",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/urano.png",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/urano.png",
             "coordenadas": {
                 "x": 1110,
                 "y": 296
             }
         },{
             "nombre": "Endor",
-            "ruta": "C:/Users/sam/PycharmProjects/Proyecto-grafos/assets/neptuno.png",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/neptuno.png",
             "coordenadas": {
                 "x": 810,
                 "y": 460
+            }
+        },{
+            "nombre": "Geonosis",
+            "ruta": "C:/Users/Julian/OneDrive/Escritorio/Proyecto-grafos/assets/geonosis.png",
+            "coordenadas": {
+                "x": 1100,
+                "y": 450
             }
         }
     ],
@@ -69,7 +76,7 @@
             "peso": 55
         },{
             "origen": "Jakku",
-            "destino": "Ajan Kloos",
+            "destino": "Ajan Kloss",
             "peso": 60
         },{
             "origen": "Alderaan",
@@ -105,11 +112,11 @@
             "peso": 36
         },{
             "origen": "Yavin 4",
-            "destino": "Ajan Kloos",
+            "destino": "Ajan Kloss",
             "peso": 59
         },{
-            "origen": "Ajan Kloos",
-            "destino": "Geonosis",
+            "origen": "Geonosis",
+            "destino": "Ajan Kloss",
             "peso": 61
         },{
             "origen": "Geonosis",
